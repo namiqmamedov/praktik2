@@ -13,6 +13,6 @@ namespace Core.Entities
         public string Name { get; set; }
         public double Price { get; set; }
         public int Count { get; set; }
-        public int DrugStore { get; set; }
+        public DrugStore DrugStore { get; set; }
     }
 }

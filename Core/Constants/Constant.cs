@@ -12,5 +12,12 @@ namespace Core.Constants
         UpdateOwner,
         DeleteOwner,
         GetAllOwner,
+        CreateDrugStore,
+        UpdateDrugStore,
+        DeleteDrugStore,
+        GetAllDrugStore,
+        GetAllDrugStoresByOwner,
+        Sale,
+
     }
 }

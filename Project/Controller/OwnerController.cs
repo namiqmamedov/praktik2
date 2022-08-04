@@ -16,7 +16,6 @@ namespace Manage.Controller
         public OwnerController()
         {
             _ownerRepository = new OwnerRepository();
-
         }
 
         public void CreateOwner()
@@ -26,28 +25,17 @@ namespace Manage.Controller
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter owner surname:");
             string surname = Console.ReadLine();
 
-
-            var dbOwner = _ownerRepository.Get(o => o.Name.ToLower() == name.ToLower());
-
-            if (dbOwner != null)
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{name} {surname} is created successfully");
+            Owner owner = new Owner
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{name} {surname} is created successfully");
-                Owner owner = new Owner
-                {
-                    Name = name,
-                    Surname = surname,
-                };
-                _ownerRepository.Create(owner);
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{name} {surname}");
+                Name = name,
+                Surname = surname,
+            };
+            _ownerRepository.Create(owner);
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{name} {surname}");
 
-            }
-            else
-            {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Something went wrong");
-            }
 
         }
-
 
         public void Update()
         {
